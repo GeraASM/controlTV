@@ -27,8 +27,8 @@ class ControlTV:
             self.is_mute = False
         if self.volume > self.volumeMAX:
             self.volume = self.volumeMAX
-            return self.volume
-        return self.volume + 1
+            return 
+        self.volume += 1
     
     def low_volume(self):
         if not self.is_on:
@@ -38,24 +38,24 @@ class ControlTV:
         if self.volume <= 0:
             self.volume = 0
             self.is_mute = True
-            return self.volume
-        return self.volume - 1
+            return
+        self.volume -= 1
     
     def up_channel(self):
         if not self.is_on:
             return
         if self.channel > 100:
             self.channel = 0
-            return self.channel
-        return self.channel + 1
+            return
+        self.channel += 1
     
     def low_channel(self):
         if not self.is_on:
             return
         if self.channel < 0:
             self.channel = 100
-            return self.channel
-        return self.channel - 1
+            return
+        self.channel -= 1
     
     def find_channel(self, channel: int):
         if not self.is_on:
